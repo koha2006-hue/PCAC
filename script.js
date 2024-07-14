@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         userInputField.value = '';
 
         try {
-            const response = await fetch('profound-randomly-gator.ngrok-free.app/webhooks/rest/webhook', {
+            const response = await fetch('https://profound-randomly-gator.ngrok-free.app/webhooks/rest/webhook', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Send /restart command to Rasa server
-            const response = await fetch('profound-randomly-gator.ngrok-free.app/webhooks/rest/webhook', {
+            const response = await fetch('https://profound-randomly-gator.ngrok-free.app/webhooks/rest/webhook', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
