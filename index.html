@@ -25,6 +25,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .chat-header {
@@ -73,13 +74,6 @@
             border-radius: 5px;
         }
 
-        .message.bot img {
-            max-width: 100%;
-            max-height: 300px;
-            display: block;
-            margin: 10px 0;
-        }
-
         .chat-input button {
             padding: 10px;
             border: none;
@@ -92,6 +86,13 @@
 
         .chat-input button:hover {
             background-color: #0056b3;
+        }
+
+        .message.bot img {
+            max-width: 100%;
+            max-height: 300px;
+            display: block;
+            margin: 10px 0;
         }
 
         .message.bot {
@@ -148,14 +149,46 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        
+
+        .dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dots span {
+            display: block;
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            background-color: #007bff;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .dots span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .dots span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            } 
+            40% {
+                transform: scale(1);
+            }
+        }
+
     </style>
 </head>
 <body>
-
-    
     <div class="chat-container">
         <button class="new-chat-button">Restart</button>
+        <button class="slots-button">Show Slots</button>
         <div class="chat-header">
             <h2>SAGE</h2>
         </div>
