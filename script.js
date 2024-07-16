@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     restartButton.addEventListener('click', restartConversation);
-    showSlotsButton.addEventListener('click', showSlots);
 
     // Function to send user message
     async function sendMessage() {
