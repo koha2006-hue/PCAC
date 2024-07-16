@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         appendMessage('user', userInput);
         userInputField.value = '';
+        showDotsAnimation();
 
         try {
             const response = await fetch('https://profound-randomly-gator.ngrok-free.app/webhooks/rest/webhook', {
@@ -34,9 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
+            removeDotsAnimation();
             handleBotResponse(data);
         } catch (error) {
             console.error('Error:', error);
+            removeDotsAnimation();
             appendMessage('bot', 'Xin lỗi, có lỗi xảy ra khi xử lý yêu cầu.');
         }
     }
@@ -138,6 +141,23 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('Error:', error);
             appendMessage('bot', 'Xin lỗi, có lỗi xảy ra khi xử lý yêu cầu.');
+        }
+    }
+
+    // Function to show dots animation
+    function showDotsAnimation() {
+        const dotsElement = document.createElement('div');
+        dotsElement.classList.add('dots', 'bot');
+        dotsElement.innerHTML = '<span></span><span></span><span></span>';
+        chatMessagesContainer.appendChild(dotsElement);
+        chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+    }
+
+    // Function to remove dots animation
+    function removeDotsAnimation() {
+        const dotsElement = document.querySelector('.dots');
+        if (dotsElement) {
+            dotsElement.remove();
         }
     }
 });
